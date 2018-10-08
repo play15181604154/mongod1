@@ -1,0 +1,114 @@
+table{
+	margin-top : 15px;
+}
+a{
+	text-decoration: none;
+}
+.navbar-inverse {
+    background-color: dodgerblue;
+    border-color: #080808;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+    margin-top: 5px;
+    font-size: 20px;
+}
+.container-fluid{
+    margin-left: 20px;
+}
+.navbar-brand>img {
+    display: block;
+}
+#reg{
+	font-size: 15px;
+}
+.container{
+	margin-left: -20px;
+	padding-left: 0;
+	float: left;
+}
+.ul1{
+	float: left;
+	background: url(../imgs/leftBg.png);
+	height: 500px;
+}
+.ul1>li{
+	list-style: none;
+	font-size: 15px;
+	margin-right: 20px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid;
+	text-align: center;
+}
+.ul1>li>a>img{
+	margin-top: 5px;
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+.ul1 .l1{
+	font-size: 18px;
+	background: dodgerblue;
+}
+.ul1 .l1 a{
+	color: white;
+}
+.ul1 .l2>a>img{
+	margin-top: 10px;
+}
+.row>img{
+	margin-top: 40px;
+	margin-left: 60px;
+	display: block;
+	float: left;
+}
+.row>p{
+	float: left;
+	margin-top: 50px;
+	margin-left: 40px;
+}
+.ac{
+	background: greenyellow;
+}
+/*.pagination {
+    display: inline-block;
+   float: right;
+    margin: 20px 0;
+    border-radius: 4px;
+}*/
+.form-controlOne {
+    display: inline-block;
+    width: 200px;
+    height: 34px;
+    margin-top: 5px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#row{
+	float: left;
+	margin-left: 50px;
+}
+.place{
+	color: blue;
+}
+td{
+	text-align: center;
+}
+.modal-dialog{
+	background: url(../imgs/leftBg.png);
+}
+.form-group1{
+	display: inline-block;
+}
+.sele{
+    width: 77px;
+    height: 34px;
+    margin-right: 10px;
+}

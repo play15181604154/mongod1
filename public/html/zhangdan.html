@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>供应商管理</title>
+	<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<!-- 头部导航条 -->
+	<header></header>
+
+	<!-- 提示 -->
+	<div class="container">
+		<ul class="ul1" id="ul1"></ul>
+
+	<div class="list-group">
+		
+	</div>
+
+	<div class="main">
+		<form class="form-inline query-form">
+		  <div class="form-group">
+		    <label class="sr-only" for="exampleInputEmail3">商品名称</label>
+		    商品名称：<input type="text" name="name" class="form-control" id="exampleInputEmail3" placeholder="商品名称">
+		  </div>
+		  <div class="form-group">
+		    <label class="sr-only" for="exampleInputPassword3">供应商</label>
+		   <!--  <input type="password" class="form-control" id="exampleInputPassword3" placeholder="供应商"> -->
+		   供应商：<select class="form-control" id="query-select-gongyingshang" name="gongyingshang">
+		  	 	<option>-请选择-</option>
+		   		<option>供应商01</option>
+		   		<option>供应商02</option>
+		   		<option>供应商03</option>
+		   </select>
+		  </div>
+		  <div class="form-group">
+		    <label class="sr-only" for="exampleInputPassword3">是否付款</label>
+		   <!--  <input type="password" class="form-control" id="exampleInputPassword3" placeholder="供应商"> -->
+		   是否付款：<select class="form-control" id="query-select-fukuan" name="fukuan">
+		  	 	<option>-请选择-</option>
+		   		<option>未付款</option>
+		   		<option>已付款</option>
+		   </select>
+		  </div>
+		  <button type="submit" class="btn btn-primary btn-query">查询</button>
+		</form>
+
+		<button class="btn btn-primary" data-toggle="modal" data-target="#addDindanModal">添加订单</button>
+
+		<table class="table table-bordered table-striped position-table">
+			<thead>
+				<tr>
+					<th>账单编号</th>
+					<th>商品名称</th>
+					<th>商品单位</th>
+					<th>供应商</th>
+					<th>数量</th>
+					<th>账单金额</th>
+					<th>是否付款</th>
+					<th>创建时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody class="tbody-zhangdan">
+				<tr>
+					<td>${curr.no}</td>
+					<td>${curr.name}</td>
+					<td>${curr.danwei}</td>
+					<td>${curr.gongyingshang}</td>
+					<td>${curr.count}</td>
+					<td>${curr.salary}</td>
+					<td>${curr.fukuan}</td>
+					<td>${curr.create_time}</td>
+					<td><a href="#" data-toggle="modal" data-target="#updateDindanModal" class="btn-update">修改</a> <a href="#" id="btn-deletee">删除</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 分页 -->
+		<nav>
+		  <ul class="pagination">
+		   <!--  <li class="disabled prev">
+		      <a href="javaScript:;">
+		        <span>&laquo;</span>
+		      </a>
+		    </li> -->
+		    <!-- <li class="active"><a href="#">1</a></li>
+		    <li><a href="javaScript:;">2</a></li>
+		    <li><a href="javaScript:;">3</a></li>
+		    <li><a href="javaScript:;">4</a></li>
+		    <li><a href="javaScript:;">5</a></li> -->
+		   <!--  <li class="disabled ">
+		      <a href="javaScript:;" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li> -->
+		  </ul>
+		</nav>
+		</div>
+
+			<!-- 添加账单的模态框 -->
+		<div class="modal fade" id="addDindanModal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+		        <h4 class="modal-title" id="addPosModalLabel">添加订单</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="alert alert-danger hidden login-error">添加失败</div>
+		        <form class="add-zhangdan-form">
+		          <div class="form-group">
+				    <label for="addShangpingNo">商品编号</label>
+				    <input type="text" class="form-control" name="no" id="addShangpingNo" placeholder="请输入商品编号">
+				  </div>
+		          <div class="form-group">
+				    <label for="addShangpingName">商品名称</label>
+				    <input type="text" class="form-control" name="name" id="addShangpingName" placeholder="请输入商品名称">
+				  </div>
+				  <div class="form-group">
+				    <label for="addShangpingDanwei">商品单位</label>
+				    <input type="text" class="form-control" name="danwei" id="addShangpingDanwei" placeholder="请输入商品单位">
+				  </div>
+				  <div class="form-group">
+				    <label for="addShangpingCount">商品数量</label>
+				    <input type="text" class="form-control" name="count" id="addShangpingCount" placeholder="请输入商品数量">
+				  </div>
+				  <div class="form-group">
+				    <label for="addShangpingSalary">总金额</label>
+				    <input type="text" class="form-control" name="salary" id="addShangpingSalary" placeholder="请输入总金额">
+				  </div>
+				  <div class="form-group">
+				    <label for="addShangpingGongyingshang">供应商</label>
+				    <select class="form-control" id="addShangpingGongyingshang" name="gongyingshang">
+					  <option>-请选择相应的供应商-</option>
+					  <option>供应商01</option>
+					  <option>供应商02</option>
+					  <option>供应商03</option>
+					  <option>供应商04</option>
+					</select>
+				  </div>
+				  <div class="form-group">
+				  	<!-- <label for="">是否付款</label> -->
+				    <!-- <label class="radio-inline">
+					  <input type="radio" name="weifukuan" id="inlineRadio1" value="option1"> 未付款
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="yifukuan" id="inlineRadio2" value="option2"> 已付款
+					</label> -->
+					<!-- <label class="radio-inline">
+					  <input type="radio" name="radio" id="inlineRadio1" value="option1"> 1
+					</label> -->
+					<label class="radio-inline">
+					  <input type="radio" name="fukuan" id="inlineRadio2" value="未付款"> 未付款
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="fukuan" id="inlineRadio3" value="已付款"> 已付款
+					</label>
+				  </div>
+				</form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			        <button type="button" class="btn btn-primary btn-add-zhangdan">添加</button>
+			      </div>
+			    </div>
+			</div>
+		</div>
+
+
+		<!-- 修改账单的模态框 -->
+		<div class="modal fade" id="updateDindanModal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+		        <h4 class="modal-title" id="addPosModalLabel">修改订单</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="alert alert-danger hidden login-error">修改失败</div>
+		        <form class="update-zhangdan-form">
+		         <div class="form-group">
+				    <label for="updateShangpingNo">账单编号</label>
+				    <input type="text" class="form-control" name="no" id="updateShangpingNo" placeholder="请输入商品编号" readonly="readonly">
+				  </div>
+		          <div class="form-group">
+				    <label for="updateShangpingName">商品名称</label>
+				    <input type="text" class="form-control" name="name" id="updateShangpingName" placeholder="请输入商品名称">
+				  </div>
+				  <div class="form-group">
+				    <label for="updateShangpingDanwei">商品单位</label>
+				    <input type="text" class="form-control" name="danwei" id="updateShangpingDanwei" placeholder="请输入商品单位">
+				  </div>
+				  <div class="form-group">
+				    <label for="updateShangpingCount">商品数量</label>
+				    <input type="text" class="form-control" name="count" id="updateShangpingCount" placeholder="请输入商品数量">
+				  </div>
+				  <div class="form-group">
+				    <label for="updateShangpingSalary">总金额</label>
+				    <input type="text" class="form-control" name="salary" id="updateShangpingSalary" placeholder="请输入总金额">
+				  </div>
+				 <div class="form-group">
+				    <label for="updateShangpingGongyingshang">供应商</label>
+				    <input type="text" class="form-control" name="gongyingshang" id="updateShangpingGongyingshang" placeholder="请输入供应商">
+				  </div>
+				 <div class="form-group">
+				    <label for="updateShangpingFukuan">是否付款</label>
+				    <input type="text" class="form-control" name="fukuan" id="updateShangpingFukuan" placeholder="是否付款">
+				  </div>
+				</form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			        <button type="button" class="btn btn-primary btn-update-zhangdan">修改</button>
+			      </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="/lib/jquery/jquery-1.12.4.min.js"></script>
+	<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/common/register_modal.js"></script>
+	<script src="/js/common/login_modal.js"></script>
+	<script src="/js/common/header.js"></script>
+	<script src="/js/common/menu.js"></script>
+	<script src="/js/zhangdan/index.js"></script>
+</body>
+</html>

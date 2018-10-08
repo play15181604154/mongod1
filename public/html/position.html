@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>供应商管理</title>
+	<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<!-- 头部导航条 -->
+	<header></header>
+
+	<div class="container">
+		<ul class="ul1" id="ul1"></ul>
+		<div id="row">
+		<p><img src="/imgs/home.png"/>你现在所在的位置是:<span class="place"></span></p>
+		用户名：<input type="text" class="form-controlOne" id="findName1" placeholder="请输入用户名">
+		<button class="btn btn-primary" id="find">查询</button>
+		<button class="btn btn-primary" data-toggle="modal" data-target="#regModal">添加用户</button>
+		<!-- 表格，显示当前页职位信息 -->
+		<table class="table table-bordered table-striped position-table">
+			<thead>
+				<tr>
+					<th style="text-align: center;">用户编码</th>
+					<th style="text-align: center;">用户名称</th>
+					<th style="text-align: center;">性别</th>
+					<th style="text-align: center;">年龄</th>
+					<th style="text-align: center;">电话</th>
+					<th style="text-align: center;">用户类型</th>
+					<th style="min-width: 100px; text-align: center;">操作</th>
+				</tr>
+			</thead>
+			<tbody class="prove-tbody">
+				
+			</tbody>
+		</table>
+		<!-- 分页 -->
+		<nav>
+		  <ul class="pagination">
+		    <li class="active"><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+		  </ul>
+		</nav>
+		</div>
+	</div>
+	<!-- 修改的模态框 -->
+	<div class="modal fade" id="XGModal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+	        <h4 class="modal-title" id="addPosModalLabel">修改用户信息</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="alert alert-danger hidden login-error">修改失败</div>
+	        <form class="xg-pos-form">
+			  <div class="form-group">
+			    <label for="addName1">用户名</label>
+			    <input type="text" class="form-control" name="name" id="addName1" placeholder="请输入供应商名称">
+			  </div>
+			  <div class="form-group">
+			    <label for="addRole1">性别</label>
+			    <input type="text" class="form-control" name="role" id="addRole1" placeholder="请输入联系人名字">
+			  </div>
+			  <div class="form-group">
+			    <label for="addPhone1">年龄</label>
+			    <input type="text" class="form-control" name="phone" id="addPhone1" placeholder="请输入联系电话">
+			  </div>
+			  <div class="form-group">
+			    <label for="addAddress1">电话</label>
+			    <input type="text" class="form-control" name="address" id="addAddress1" placeholder="请输入联系地址">
+			  </div>
+			  <div class="form-group">
+			    <label for="addCall1">用户类型</label>
+			    <input type="text" class="form-control" name="call" id="addCall1" placeholder="请输入传真">
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary btn-xg">修改</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script src="/lib/jquery/jquery-1.12.4.min.js"></script>
+	<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/common/register_modal.js"></script>
+	<script src="/js/common/login_modal.js"></script>
+	<script src="/js/common/header.js"></script>
+	<script src="/js/position/index.js"></script>
+</body>
+</html>

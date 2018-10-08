@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>供应商管理</title>
+	<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<!-- 头部导航条 -->
+	<header></header>
+
+	<div class="container">
+		<ul class="ul1" id="ul1"></ul>
+		<div id="row">
+		<p><img src="/imgs/home.png"/>你现在所在的位置是:<span class="place"></span></p>
+		商品名称：<input type="text" class="form-controlOne" id="findName" placeholder="请输入商品名称">
+		<div class="form-group1">
+		    <label class="sr-only" for="exampleInputPassword3">供应商</label>
+		   <!--  <input type="password" class="form-control" id="exampleInputPassword3" placeholder="供应商"> -->
+		   供应商：<select class="sele"  id="query-select-gongyingshang" name="gongyingshang">
+		  	 	<option>-请选择-</option>
+		   		<option>供应商01</option>
+		   		<option>供应商02</option>
+		   		<option>供应商03</option>
+		   </select>
+		  </div>
+		  <div class="form-group1">
+		    <label class="sr-only" for="exampleInputPassword3">是否付款</label>
+		   <!--  <input type="password" class="form-control" id="exampleInputPassword3" placeholder="供应商"> -->
+		   是否付款：<select class="sele" id="query-select-fukuan" name="fukuan">
+		  	 	<option>-请选择-</option>
+		   		<option>未付款</option>
+		   		<option>已付款</option>
+		   </select>
+		  </div>
+		<button class="btn btn-primary" id="find">查询</button>
+		<button class="btn btn-primary" data-toggle="modal" data-target="#addPosModal">添加供应商</button>
+		<!-- 表格，显示当前页职位信息 -->
+		<table class="table table-bordered table-striped position-table">
+			<thead>
+				<tr>
+					<th>账单编号</th>
+					<th>商品名称</th>
+					<th>商品单位</th>
+					<th>供应商</th>
+					<th>数量</th>
+					<th>账单金额</th>
+					<th>是否付款</th>
+					<th>创建时间</th>
+					<th style="min-width: 100px; text-align: center;">操作</th>
+				</tr>
+			</thead>
+			<tbody class="prove-tbody">
+				
+			</tbody>
+		</table>
+		<!-- 分页 -->
+		<nav>
+		  <ul class="pagination">
+		    <!--<li class="active"><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>-->
+		  </ul>
+		</nav>
+		</div>
+	</div>
+	<!-- 添加的模态框 -->
+	<div class="modal fade" id="addPosModal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+	        <h4 class="modal-title" id="addPosModalLabel">添加供应商</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="alert alert-danger hidden login-error">添加失败</div>
+	        <form class="add-pos-form">
+	          <div class="form-group">
+			    <label for="addNum">供应商编码</label>
+			    <input type="text" class="form-control" name="num" id="addNum" placeholder="请输入供应商编码">
+			  </div>
+			  <div class="form-group">
+			    <label for="addName">供应商名称</label>
+			    <input type="text" class="form-control" name="name" id="addName" placeholder="请输入供应商名称">
+			  </div>
+			  <div class="form-group">
+			    <label for="addRole">联系人</label>
+			    <input type="text" class="form-control" name="role" id="addRole" placeholder="请输入联系人名字">
+			  </div>
+			  <div class="form-group">
+			    <label for="addPhone">联系电话</label>
+			    <input type="text" class="form-control" name="phone" id="addPhone" placeholder="请输入联系电话">
+			  </div>
+			  <div class="form-group">
+			    <label for="addAddress">联系地址</label>
+			    <input type="text" class="form-control" name="address" id="addAddress" placeholder="请输入联系地址">
+			  </div>
+			  <div class="form-group">
+			    <label for="addCall">传真</label>
+			    <input type="text" class="form-control" name="call" id="addCall" placeholder="请输入传真">
+			  </div>
+			   <div class="form-group">
+			    <label for="addTime">创建时间</label>
+			    <input type="text" class="form-control" name="time" id="addTime" placeholder="请输入创建时间">
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary btn-add-pos">添加</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- 修改的模态框 -->
+	<div class="modal fade" id="XGModal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+	        <h4 class="modal-title" id="addPosModalLabel">修改供应商信息</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="alert alert-danger hidden login-error">修改失败</div>
+	        <form class="xg-pos-form">
+			  <div class="form-group">
+			    <label for="addName1">供应商名称</label>
+			    <input type="text" class="form-control" name="name" id="addName1" placeholder="请输入供应商名称">
+			  </div>
+			  <div class="form-group">
+			    <label for="addRole1">联系人</label>
+			    <input type="text" class="form-control" name="role" id="addRole1" placeholder="请输入联系人名字">
+			  </div>
+			  <div class="form-group">
+			    <label for="addPhone1">联系电话</label>
+			    <input type="text" class="form-control" name="phone" id="addPhone1" placeholder="请输入联系电话">
+			  </div>
+			  <div class="form-group">
+			    <label for="addAddress1">联系地址</label>
+			    <input type="text" class="form-control" name="address" id="addAddress1" placeholder="请输入联系地址">
+			  </div>
+			  <div class="form-group">
+			    <label for="addCall1">传真</label>
+			    <input type="text" class="form-control" name="call" id="addCall1" placeholder="请输入传真">
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary btn-xg">修改</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script src="/lib/jquery/jquery-1.12.4.min.js"></script>
+	<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/common/register_modal.js"></script>
+	<script src="/js/common/login_modal.js"></script>
+	<script src="/js/common/header.js"></script>
+	<script src="/js/sumBill/index.js"></script>
+</body>
+</html>

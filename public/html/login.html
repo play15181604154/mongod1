@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>用户登录</title>
+	<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+	<body style="background-color: #00B7FF;">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+	        <h4 class="modal-title" id="loginModalLabel">用户登录</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="alert alert-danger hidden login-error">用户名或密码错误</div>
+	        <form class="login-form">
+			  <div class="form-group">
+			    <label for="loginUsername">用户名</label>
+			    <input type="text" class="form-control" name="username" id="loginUsername" placeholder="请输入用户名">
+			  </div>
+			  <div class="form-group">
+			    <label for="loginPassword">密码</label>
+			    <input type="password" class="form-control" name="password" id="loginPassword" placeholder="请输入密码">
+			  </div>
+			  <div class="form-group">
+			    <label for="loginCaptcha">验证码</label>
+			    <div class="input-group">
+			      <input type="text" class="form-control" name="captcha" id="loginCaptcha" placeholder="请输入验证码">
+				  <span class="input-group-addon" id="captcha-info">正确</span>
+				</div>
+				<div class="captcha-container"></div>
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary btn-login">登录</button>
+	      </div>
+	    </div>
+	</div>
+	<script src="/lib/jquery/jquery-1.12.4.min.js"></script>
+	<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/common/register_modal.js"></script>
+	<script src="/js/common/login_modal.js"></script>
+	<script src="/js/common/header.js"></script>
+	<script src="/js/password/index.js"></script>
+	</body>
+</html>
